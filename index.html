@@ -9,157 +9,152 @@
 </head>
 
 <body>
-    <!-- Navbar -->
     <div class="navbar">
-        <div class="navbar-brand">✨ SkinPakar</div>
+        <div class="navbar-brand">SkinPakar</div>
         <div class="navbar-links">
             <a href="#home">Home</a>
             <a href="#features">Fitur</a>
-            <a href="consultation.html" class="cta-button nav-cta">Mulai
-                Konsultasi</a>
+            <a href="consultation.html" class="cta-button nav-cta">Mulai Konsultasi</a>
         </div>
     </div>
 
-    <!-- Hero Section -->
-    <div class="hero">
+    <div class="hero" id="home">
         <div class="hero-content">
-            <h1>Dapatkan Rekomendasi Skincare Personal</h1>
-            <p class="subtitle">Sistem pakar berbasis AI yang memberikan solusi perawatan kulit sesuai dengan kondisi
-                dan kebutuhan Anda</p>
-            <a href="consultation.html" class="cta-button">Mulai Konsultasi Sekarang</a>
+            <p class="eyebrow">Sistem Pakar Rekomendasi Skincare</p>
+            <h1>Temukan rutinitas skincare yang cocok untuk kondisi kulitmu.</h1>
+            <p class="subtitle">Jawab beberapa kondisi kulit, lalu sistem akan menganalisis gejala dengan metode
+                Forward Chaining dan Certainty Factor untuk memberi rekomendasi yang lebih terarah.</p>
+            <div class="hero-actions">
+                <a href="consultation.html" class="cta-button">Mulai Konsultasi</a>
+                <a href="#features" class="secondary-link">Lihat fitur</a>
+            </div>
+            <div class="hero-stats">
+                <div>
+                    <strong>6</strong>
+                    <span>kondisi kulit</span>
+                </div>
+                <div>
+                    <strong>4</strong>
+                    <span>aturan pakar</span>
+                </div>
+                <div>
+                    <strong>CF</strong>
+                    <span>nilai keyakinan</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-panel" aria-label="Preview hasil rekomendasi">
+            <div class="skin-card skin-card-main">
+                <span class="card-label">Hasil Analisis</span>
+                <h2>Oily Acne Prone</h2>
+                <div class="confidence-preview">
+                    <span></span>
+                </div>
+                <p>Gunakan facial wash gentle, moisturizer gel, sunscreen non-comedogenic, dan salicylic acid.</p>
+            </div>
+            <div class="skin-card mini-card top-card">
+                <strong>Gejala</strong>
+                <span>Berminyak + Jerawat</span>
+            </div>
+            <div class="skin-card mini-card bottom-card">
+                <strong>Keyakinan</strong>
+                <span>98.00%</span>
+            </div>
         </div>
     </div>
 
-    <!-- Main Content -->
     <div class="container">
-        <!-- Features Section -->
         <div class="section" id="features">
             <h2 class="section-title">Mengapa <span>SkinPakar?</span></h2>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">🔍</div>
+                    <div class="feature-icon">01</div>
                     <h3>Analisis Mendalam</h3>
-                    <p>Sistem pakar menganalisis kondisi kulit Anda dengan akurat menggunakan pendekatan berbasis
-                        pengetahuan dermatologi</p>
+                    <p>Sistem pakar menganalisis kondisi kulit menggunakan pendekatan berbasis aturan dan nilai
+                        keyakinan.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">💡</div>
+                    <div class="feature-icon">02</div>
                     <h3>Rekomendasi Personal</h3>
-                    <p>Dapatkan saran skincare yang dipersonalisasi berdasarkan tipe dan kondisi kulit unik Anda</p>
+                    <p>Dapatkan saran skincare yang disesuaikan dengan tipe dan masalah kulit yang dipilih.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
+                    <div class="feature-icon">03</div>
                     <h3>Hasil Instan</h3>
-                    <p>Proses analisis yang cepat dan akurat memberikan hasil rekomendasi dalam hitungan detik</p>
+                    <p>Proses analisis berjalan cepat sehingga rekomendasi dapat langsung dilihat setelah konsultasi.
+                    </p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">📊</div>
+                    <div class="feature-icon">04</div>
                     <h3>Tingkat Kepercayaan</h3>
-                    <p>Setiap rekomendasi dilengkapi dengan tingkat kepercayaan untuk transparansi dan akurasi</p>
+                    <p>Setiap hasil dilengkapi persentase Certainty Factor agar rekomendasi lebih transparan.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🌿</div>
-                    <h3>Solusi Alami</h3>
-                    <p>Fokus pada produk dan bahan-bahan alami yang aman untuk kesehatan jangka panjang kulit Anda</p>
+                    <div class="feature-icon">05</div>
+                    <h3>Solusi Praktis</h3>
+                    <p>Saran produk dibuat ringkas dan mudah dipahami untuk membantu menyusun rutinitas harian.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
+                    <div class="feature-icon">06</div>
                     <h3>Panduan Lengkap</h3>
-                    <p>Instruksi penggunaan detail untuk setiap produk yang direkomendasikan</p>
+                    <p>Rekomendasi tidak hanya menampilkan kategori kulit, tetapi juga arahan perawatan yang relevan.
+                    </p>
                 </div>
             </div>
         </div>
 
-        <!-- About Section -->
         <div class="section">
             <div class="about-section">
-                <h2>Apa itu Sistem Pakar Rekomendasi Skincare?</h2>
-                <p>
-                    Sistem Pakar Rekomendasi Skincare adalah aplikasi cerdas yang menggunakan teknologi kecerdasan
-                    buatan dan pengetahuan dermatologi
-                    untuk memberikan rekomendasi produk perawatan kulit yang tepat sesuai dengan kondisi kulit Anda.
-                </p>
-                <p>
-                    Aplikasi ini dirancang untuk membantu setiap individu menemukan solusi skincare yang paling efektif
-                    tanpa perlu konsultasi langsung
-                    dengan dermatologis, sehingga lebih terjangkau dan praktis.
-                </p>
-
-                <div class="benefits-list">
-                    <div class="benefit-item">
-                        <div class="benefit-check">✓</div>
-                        <h4>Teknologi AI Terdepan</h4>
-                        <p>Menggunakan algoritma machine learning untuk pembelajaran berkelanjutan</p>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-check">✓</div>
-                        <h4>Database Komprehensif</h4>
-                        <p>Database lengkap tentang kondisi kulit, produk, dan bahan skincare</p>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-check">✓</div>
-                        <h4>Aman dan Terpercaya</h4>
-                        <p>Rekomendasi berdasarkan penelitian dermatologi terkini</p>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-check">✓</div>
-                        <h4>Mudah Digunakan</h4>
-                        <p>Interface yang intuitif dan user-friendly untuk semua kalangan</p>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-check">✓</div>
-                        <h4>Gratis dan Tersedia</h4>
-                        <p>Akses mudah kapan saja tanpa biaya berlangganan tambahan</p>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-check">✓</div>
-                        <h4>Update Berkala</h4>
-                        <p>Database produk dan pengetahuan selalu diperbarui</p>
-                    </div>
+                <div>
+                    <p class="eyebrow">Tentang aplikasi</p>
+                    <h2>Apa itu Sistem Pakar Rekomendasi Skincare?</h2>
+                </div>
+                <div class="about-copy">
+                    <p>Sistem Pakar Rekomendasi Skincare adalah aplikasi cerdas yang membantu pengguna menemukan
+                        rekomendasi perawatan kulit berdasarkan kondisi yang dipilih.</p>
+                    <p>Aplikasi ini dirancang agar proses konsultasi terasa sederhana: pilih gejala, jalankan analisis,
+                        lalu lihat rekomendasi beserta tingkat keyakinannya.</p>
                 </div>
             </div>
         </div>
 
-        <!-- How It Works -->
         <div class="section">
             <h2 class="section-title">Cara Kerja <span>SkinPakar</span></h2>
             <div class="how-it-works">
                 <div class="steps">
                     <div class="step">
                         <div class="step-number">1</div>
-                        <h3>Jawab Pertanyaan</h3>
-                        <p>Jawab beberapa pertanyaan tentang kondisi kulit dan masalah yang Anda hadapi</p>
+                        <h3>Bingung Mencari Rekomendasi Skincare?</h3>
+                        <p>Pilih beberapa kondisi kulit dan masalah yang sedang Anda alami.</p>
                     </div>
                     <div class="step">
                         <div class="step-number">2</div>
                         <h3>Analisis Sistem</h3>
-                        <p>Sistem pakar menganalisis jawaban Anda menggunakan aturan dermatologi</p>
+                        <p>Sistem menganalisis pilihan menggunakan aturan Forward Chaining.</p>
                     </div>
                     <div class="step">
                         <div class="step-number">3</div>
-                        <h3>Identifikasi Masalah</h3>
-                        <p>Mengidentifikasi jenis dan tingkat keparahan masalah kulit Anda</p>
+                        <h3>Hitung Keyakinan</h3>
+                        <p>Certainty Factor digunakan untuk menampilkan tingkat keyakinan hasil.</p>
                     </div>
                     <div class="step">
                         <div class="step-number">4</div>
                         <h3>Dapatkan Rekomendasi</h3>
-                        <p>Terima rekomendasi produk skincare yang disesuaikan dengan kebutuhan Anda</p>
+                        <p>Terima rekomendasi skincare yang disesuaikan dengan kebutuhan Anda.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- CTA Section -->
     <div class="cta-section">
-        <h2>Siap untuk Kulit yang Lebih Sehat?</h2>
-        <p>Mulai konsultasi skincare Anda hari ini dan dapatkan rekomendasi personal dari SkinPakar</p>
+        <h2>Siap untuk kulit yang lebih terawat?</h2>
+        <p>Mulai konsultasi skincare dan dapatkan rekomendasi personal dari SkinPakar.</p>
         <a href="consultation.html" class="cta-button cta-button-light">Mulai Konsultasi Gratis</a>
     </div>
 
-    <!-- Footer -->
     <div class="footer">
-        <p>&copy; 2024 Sistem Pakar Rekomendasi Skincare. Dibuat dengan ❤️ untuk kesehatan kulit Anda.</p>
+        <p>&copy; 2024 Sistem Pakar Rekomendasi Skincare.</p>
     </div>
 </body>
 
