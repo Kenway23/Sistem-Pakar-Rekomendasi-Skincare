@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konsultasi - Sistem Pakar Rekomendasi Skincare</title>
+    <link rel="stylesheet" href="assets/css/consultation.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="index.html" class="navbar-brand">✨ SkinPakar</a>
+        <a href="index.html">← Kembali ke Home</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <div class="hero">
+                <h1>Konsultasi Skincare</h1>
+                <p>Metode Forward Chaining + Certainty Factor - Pilih kondisi kulit Anda untuk mendapatkan rekomendasi
+                </p>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="content">
+                <!-- Form Panel -->
+                <div class="panel">
+                    <div class="section-title">📋 Pilih Gejala / Kondisi Kulit</div>
+                    <p class="hint">Centang satu atau lebih kondisi yang sedang dialami</p>
+
+                    <form id="consultationForm">
+                        <div class="gejala-box">
+                            <label class="gejala-label">
+                                <input type="checkbox" id="g01"> Kulit Berminyak
+                            </label>
+                            <label class="gejala-label">
+                                <input type="checkbox" id="g02"> Kulit Kering
+                            </label>
+                            <label class="gejala-label">
+                                <input type="checkbox" id="g03"> Banyak Jerawat
+                            </label>
+                            <label class="gejala-label">
+                                <input type="checkbox" id="g04"> Kulit Kusam
+                            </label>
+                            <label class="gejala-label">
+                                <input type="checkbox" id="g05"> Kulit Sensitif
+                            </label>
+                            <label class="gejala-label">
+                                <input type="checkbox" id="g06"> Pori-pori Besar
+                            </label>
+                        </div>
+
+                        <div class="button-box">
+                            <button type="button" id="analyzeButton" class="btn-analisis">Analisis</button>
+                            <button type="reset" id="resetButton" class="btn-reset">Reset</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Results Panel -->
+                <div class="panel">
+                    <div id="emptyState" class="empty-state">
+                        <div class="empty-state-icon">🔍</div>
+                        <p><strong>Hasil akan muncul di sini</strong></p>
+                        <p class="empty-state-help">Pilih gejala dan klik "Analisis" untuk hasil rekomendasi</p>
+                    </div>
+                    <div id="hasilContainer" class="hasil"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Sistem Pakar Rekomendasi Skincare. Metode: Forward Chaining + Certainty Factor</p>
+    </div>
+    <script src="assets/js/consultation.js"></script>
+</body>
+
+</html>
