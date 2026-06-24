@@ -24,10 +24,24 @@
 
             <div class="content">
                 <div class="panel">
-                    <div class="section-title">Pilih Gejala / Kondisi Kulit</div>
-                    <p class="hint">Centang satu atau lebih kondisi yang sedang dialami.</p>
-
                     <form id="consultationForm">
+                        <div class="section-title">1. Pilih Kelompok Usia</div>
+                        <p class="hint">Usia digunakan untuk menyesuaikan kandungan dan intensitas perawatan.</p>
+
+                        <div class="age-field">
+                            <label for="ageGroup">Kelompok usia</label>
+                            <select id="ageGroup" name="ageGroup" required>
+                                <option value="">Pilih kelompok usia</option>
+                                <option value="u01">12–19 tahun</option>
+                                <option value="u02">20–29 tahun</option>
+                                <option value="u03">30–39 tahun</option>
+                                <option value="u04">40 tahun ke atas</option>
+                            </select>
+                        </div>
+
+                        <div class="section-title symptoms-title">2. Pilih Gejala / Kondisi Kulit</div>
+                        <p class="hint">Centang satu atau lebih kondisi yang sedang dialami.</p>
+
                         <div class="gejala-box">
                             <label class="gejala-label">
                                 <input type="checkbox" id="g01"> Kulit Berminyak
@@ -58,9 +72,9 @@
 
                 <div class="panel">
                     <div id="emptyState" class="empty-state">
-                        <div class="empty-state-icon">Ayo Pilih Gejala Kulit Kamu</div>
+                        <div class="empty-state-icon">Kenali Kebutuhan Kulitmu</div>
                         <p><strong>Hasil akan muncul di sini</strong></p>
-                        <p class="empty-state-help">Pilih gejala dan klik "Analisis" untuk melihat rekomendasi.</p>
+                        <p class="empty-state-help">Pilih kelompok usia dan gejala, lalu klik "Analisis".</p>
                     </div>
                     <div id="hasilContainer" class="hasil"></div>
                 </div>
