@@ -107,7 +107,7 @@ function analisisSkincare() {
         return;
     }
 
-    const terbaik = Object.keys(hasil).reduce((a, b) => hasil[a].cf > hasil[b].cf ? a : b);
+    const terbaik = Object.keys(hasil).reduce((a, b) => hasil[a].cf >= hasil[b].cf ? a : b);
     const persen = (hasil[terbaik].cf * 100).toFixed(2);
     const hindariHasil = hasil[terbaik].hindari ? `
         <div class="hasil-item">
