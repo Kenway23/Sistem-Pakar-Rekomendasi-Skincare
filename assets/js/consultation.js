@@ -3,11 +3,22 @@ function combineCF(cf1, cf2) {
 }
 
 const ageLabels = {
+    u00: "1–11 tahun",
     u01: "12–19 tahun",
     u02: "20–29 tahun",
     u03: "30–39 tahun",
-    u04: "40 tahun ke atas"
+    u04: "40–59 tahun",
+    u05: "60–100 tahun"
 };
+
+function tentukanKelompokUsia(usia) {
+    if (usia <= 11) return "u00";
+    if (usia <= 19) return "u01";
+    if (usia <= 29) return "u02";
+    if (usia <= 39) return "u03";
+    if (usia <= 59) return "u04";
+    return "u05";
+}
 
 // Rule usia menyesuaikan saran setelah kategori kulit dengan CF tertinggi ditemukan.
 const rekomendasiUsia = {
@@ -85,8 +96,62 @@ const rekomendasiUsia = {
     }
 };
 
+function tampilkanRekomendasiUsiaKhusus(usia, kelompokUsia) {
+    const saranUsiaKhusus = kelompokUsia === "u00"
+        ? "Sebaiknya konsultasikan kebutuhan kulit secara langsung kepada dokter atau tenaga ahli. Gunakan produk yang memiliki label sesuai usia anak dan berada di bawah pengawasan orang tua."
+        : "Sebaiknya konsultasikan kondisi kulit secara langsung kepada dokter atau tenaga ahli agar mendapatkan perawatan yang sesuai dengan kondisi kulit dan kesehatan secara menyeluruh.";
+
+    const hasilContainer = document.getElementById("hasilContainer");
+    hasilContainer.innerHTML = `
+        <h2>Rekomendasi Berdasarkan Usia</h2>
+        <div class="hasil-item">
+            <strong>Usia:</strong>
+            <p>${usia} tahun (${ageLabels[kelompokUsia]})</p>
+        </div>
+        <div class="age-guidance">
+            <strong>Saran Utama:</strong>
+            <p>${saranUsiaKhusus}</p>
+        </div>
+        <p class="result-note">Sistem tidak memberikan rekomendasi bahan aktif khusus untuk kelompok usia ini demi menjaga keamanan penggunaan skincare.</p>
+    `;
+    hasilContainer.dataset.ageOnly = "true";
+    document.getElementById("emptyState").style.display = "none";
+    hasilContainer.classList.add("active");
+}
+
+function aturFormBerdasarkanUsia() {
+    const nilaiUsia = document.getElementById("age").value.trim();
+    const usia = Number(nilaiUsia);
+    const usiaValid = nilaiUsia !== "" && Number.isInteger(usia) && usia >= 1 && usia <= 100;
+    const kelompokUsia = usiaValid ? tentukanKelompokUsia(usia) : "";
+    const usiaKhusus = kelompokUsia === "u00" || kelompokUsia === "u05";
+    const checkboxes = document.querySelectorAll('.gejala-box input[type="checkbox"]');
+
+    checkboxes.forEach((checkbox) => {
+        checkbox.disabled = usiaKhusus;
+        if (usiaKhusus) checkbox.checked = false;
+    });
+
+    document.getElementById("analyzeButton").disabled = usiaKhusus;
+
+    if (usiaKhusus) {
+        tampilkanRekomendasiUsiaKhusus(usia, kelompokUsia);
+        return;
+    }
+
+    const hasilContainer = document.getElementById("hasilContainer");
+    if (hasilContainer.dataset.ageOnly === "true") {
+        hasilContainer.classList.remove("active");
+        hasilContainer.dataset.ageOnly = "false";
+        document.getElementById("emptyState").style.display = "grid";
+    }
+}
+
 function analisisSkincare() {
-    const kelompokUsia = document.getElementById("ageGroup").value;
+    const nilaiUsia = document.getElementById("age").value.trim();
+    const usia = Number(nilaiUsia);
+    const usiaValid = nilaiUsia !== "" && Number.isInteger(usia) && usia >= 1 && usia <= 100;
+    const kelompokUsia = usiaValid ? tentukanKelompokUsia(usia) : "";
     const g01 = document.getElementById("g01").checked ? 1 : 0;
     const g02 = document.getElementById("g02").checked ? 1 : 0;
     const g03 = document.getElementById("g03").checked ? 1 : 0;
@@ -104,18 +169,25 @@ function analisisSkincare() {
     if (g05) gejalaDipilih.push("Kulit Sensitif");
     if (g06) gejalaDipilih.push("Pori-pori Besar");
 
-    if (!kelompokUsia || gejalaDipilih.length === 0) {
-        let pesan = "Silakan pilih kelompok usia dan minimal satu gejala terlebih dahulu.";
-
-        if (kelompokUsia && gejalaDipilih.length === 0) {
-            pesan = "Silakan pilih minimal satu gejala terlebih dahulu.";
-        } else if (!kelompokUsia && gejalaDipilih.length > 0) {
-            pesan = "Silakan pilih kelompok usia terlebih dahulu.";
-        }
-
+    if (!usiaValid) {
         document.getElementById("hasilContainer").innerHTML = `
             <h2>Hasil Analisis Skincare</h2>
-            <p class="warning">${pesan}</p>
+            <p class="warning">Silakan masukkan usia yang valid antara 1 sampai 100 tahun.</p>
+        `;
+        document.getElementById("emptyState").style.display = "none";
+        document.getElementById("hasilContainer").classList.add("active");
+        return;
+    }
+
+    if (kelompokUsia === "u00" || kelompokUsia === "u05") {
+        tampilkanRekomendasiUsiaKhusus(usia, kelompokUsia);
+        return;
+    }
+
+    if (gejalaDipilih.length === 0) {
+        document.getElementById("hasilContainer").innerHTML = `
+            <h2>Hasil Analisis Skincare</h2>
+            <p class="warning">Silakan pilih minimal satu gejala terlebih dahulu.</p>
         `;
         document.getElementById("emptyState").style.display = "none";
         document.getElementById("hasilContainer").classList.add("active");
@@ -172,8 +244,8 @@ function analisisSkincare() {
         document.getElementById("hasilContainer").innerHTML = `
             <h2>Hasil Analisis Skincare</h2>
             <div class="hasil-item">
-                <strong>Kelompok Usia:</strong>
-                <p>${ageLabels[kelompokUsia]}</p>
+                <strong>Usia:</strong>
+                <p>${usia} tahun (${ageLabels[kelompokUsia]})</p>
             </div>
             <div class="hasil-item">
                 <strong>Gejala yang Dipilih:</strong>
@@ -203,8 +275,8 @@ function analisisSkincare() {
         <h2>Hasil Analisis Skincare</h2>
 
         <div class="hasil-item">
-            <strong>Kelompok Usia:</strong>
-            <p>${ageLabels[kelompokUsia]}</p>
+            <strong>Usia:</strong>
+            <p>${usia} tahun (${ageLabels[kelompokUsia]})</p>
         </div>
 
         <div class="hasil-item">
@@ -248,11 +320,25 @@ function analisisSkincare() {
 
 function resetForm() {
     document.getElementById("consultationForm").reset();
+    aturFormBerdasarkanUsia();
     document.getElementById("emptyState").style.display = "grid";
     document.getElementById("hasilContainer").classList.remove("active");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    const ageInput = document.getElementById("age");
+    let ageInputTimer;
+
+    ageInput.addEventListener("input", () => {
+        clearTimeout(ageInputTimer);
+        ageInputTimer = setTimeout(aturFormBerdasarkanUsia, 700);
+    });
+
+    ageInput.addEventListener("change", () => {
+        clearTimeout(ageInputTimer);
+        aturFormBerdasarkanUsia();
+    });
+
     document.getElementById("analyzeButton").addEventListener("click", analisisSkincare);
     document.getElementById("resetButton").addEventListener("click", (event) => {
         event.preventDefault();

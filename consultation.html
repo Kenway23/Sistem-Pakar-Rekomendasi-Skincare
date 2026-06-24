@@ -25,18 +25,14 @@
             <div class="content">
                 <div class="panel">
                     <form id="consultationForm">
-                        <div class="section-title">1. Pilih Kelompok Usia</div>
+                        <div class="section-title">1. Masukkan Usia</div>
                         <p class="hint">Usia digunakan untuk menyesuaikan kandungan dan intensitas perawatan.</p>
 
                         <div class="age-field">
-                            <label for="ageGroup">Kelompok usia</label>
-                            <select id="ageGroup" name="ageGroup" required>
-                                <option value="">Pilih kelompok usia</option>
-                                <option value="u01">12–19 tahun</option>
-                                <option value="u02">20–29 tahun</option>
-                                <option value="u03">30–39 tahun</option>
-                                <option value="u04">40 tahun ke atas</option>
-                            </select>
+                            <label for="age">Usia</label>
+                            <input type="number" id="age" name="age" min="1" max="100" step="1"
+                                inputmode="numeric" placeholder="Contoh: 21" required>
+                            <span class="field-help">Masukkan usia antara 1 sampai 100 tahun.</span>
                         </div>
 
                         <div class="section-title symptoms-title">2. Pilih Gejala / Kondisi Kulit</div>
@@ -74,7 +70,7 @@
                     <div id="emptyState" class="empty-state">
                         <div class="empty-state-icon">Kenali Kebutuhan Kulitmu</div>
                         <p><strong>Hasil akan muncul di sini</strong></p>
-                        <p class="empty-state-help">Pilih kelompok usia dan gejala, lalu klik "Analisis".</p>
+                        <p class="empty-state-help">Masukkan usia dan pilih gejala, lalu klik "Analisis".</p>
                     </div>
                     <div id="hasilContainer" class="hasil"></div>
                 </div>

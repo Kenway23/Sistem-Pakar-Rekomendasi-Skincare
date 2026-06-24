@@ -135,7 +135,7 @@ body {
     font-weight: 800;
 }
 
-.age-field select {
+.age-field input {
     width: 100%;
     min-height: 52px;
     border: 1px solid var(--line);
@@ -145,14 +145,21 @@ body {
     color: var(--text);
     font: inherit;
     font-weight: 700;
-    cursor: pointer;
     transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.age-field select:focus {
+.age-field input:focus {
     border-color: var(--primary);
     box-shadow: 0 0 0 3px rgba(183, 55, 92, 0.12);
     outline: none;
+}
+
+.field-help {
+    display: block;
+    margin-top: 7px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.5;
 }
 
 .symptoms-title {
@@ -203,6 +210,14 @@ label.gejala-label:has(input:checked) {
     box-shadow: 0 12px 24px rgba(183, 55, 92, 0.14);
 }
 
+label.gejala-label:has(input:disabled) {
+    background: #f3efec;
+    color: #9a918d;
+    cursor: not-allowed;
+    opacity: 0.65;
+    transform: none;
+}
+
 .button-box {
     display: flex;
     gap: 12px;
@@ -230,6 +245,13 @@ button {
 .btn-analisis:hover {
     background: var(--primary-dark);
     transform: translateY(-2px);
+}
+
+.btn-analisis:disabled {
+    background: #c9bfbb;
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: none;
 }
 
 .btn-reset {
@@ -387,6 +409,26 @@ ul li {
     color: var(--muted);
     font-size: 12px;
     line-height: 1.6;
+}
+
+.age-guidance {
+    margin-bottom: 18px;
+    padding: 18px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--surface-soft);
+}
+
+.age-guidance strong {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--primary-dark);
+}
+
+.age-guidance p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.7;
 }
 
 .footer {
